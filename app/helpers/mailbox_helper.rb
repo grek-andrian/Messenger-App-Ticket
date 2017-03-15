@@ -1,5 +1,5 @@
 module MailboxHelper
     def unread_messages_count
-        mailbox.inbox(unread: true).count(:id, distinct: true)
+        @unread_count = mailbox.inbox(read: false).count(:id, distinct: true).to_s
     end
 end
