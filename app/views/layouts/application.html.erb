@@ -11,14 +11,17 @@
     <body>
         <%= render 'layouts/nav' %>
 
-        <% flash.each do |key, value| %>
-        <div class="text-center <%= flash_class(key) %>">
-            <%= value %>
-        </div>
-        <% end %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
         <div class="container">
             <%= yield %>
         </div>
+
+        <footer class="navbar-fixed-bottom">
+        	<div class="container">
+        	&copy; <%= Date.today.year %> Andrian Hretsko <a href="https://tickets.ua/"> for Tickets.ua</a>
+        	</div>
+        </footer>
     </body>
 </html>
