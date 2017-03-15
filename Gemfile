@@ -22,7 +22,7 @@ gem 'pry', '~> 0.10.4'
 gem 'devise', '~> 4.2'
 gem 'mailboxer', '~> 0.14.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'normalize-rails'
+gem 'devise-bootstrap-views'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
