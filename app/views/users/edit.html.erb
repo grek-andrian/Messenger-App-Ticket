@@ -1,8 +1,8 @@
-<h1>Create new user</h1>
+<h1>Update user profile</h1>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <%= form_for @user, url: users_admin_index_path(@user) do |f| %>
+        <%= form_for @user, url: users_admin_path(@user) do |f| %>
 
         <div class="form-group">
             <%= f.label :name %>
@@ -15,6 +15,7 @@
         <div class="form-group">
             <div style="width: 150px;">
                 <%= f.label :avatar %>
+                <%= image_tag current_user.avatar.url(:thumb), class: "img-thumbnail rounded float-left" %>
                 <%= f.file_field :avatar, label: "Choose your avatar" %>
 
             </div>
@@ -29,7 +30,7 @@
             <%= f.password_field :password_confirmation, class: "form-control"  %>
         </div>
 
-        <%= f.submit "Create user", class: "btn btn-large btn-success" %>
+        <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
         <%= link_to 'Back', users_admin_index_path, class:"btn btn-primary" %>
         <% end %>
 

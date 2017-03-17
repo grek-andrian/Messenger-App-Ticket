@@ -24,6 +24,9 @@
                         <li class="divider"></li>
                         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                     </ul>
+                <% if current_user.admin? %>
+                <li> <%= link_to "Users", users_admin_index_path %></li> </li>
+                <% end %>
                 <li><%= link_to "Message", mailbox_inbox_path %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             <% else %>

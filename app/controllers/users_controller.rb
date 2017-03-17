@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     before_action :signed_in_user
-    before_action :authenticate_user!, :redirect_unless_admin,  only: [:new, :create]
-    before_action :admin_user, only: :destroy
+    before_action :authenticate_user!, :redirect_unless_admin, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
     def index
         @users = User.all
@@ -11,8 +10,34 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
+    def create
+        @user = User.new(user_params)
+        if @user.save
+            flash[:success] = 'You create new user!'
+            redirect_to users_admin_index_path
+        else
+            flash[:error] = 'please complete all fields'
+            render 'new'
+        end
+end
+
     def show
         @user = User.find(params[:id])
+    end
+
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+        if @user.update_attributes(user_params)
+            flash[:success] = 'Profile updated'
+            redirect_to users_admin_path
+        else
+            flash[:error] = 'Please complete all fields'
+            render 'edit'
+        end
     end
 
     def destroy
@@ -35,14 +60,10 @@ class UsersController < ApplicationController
         end
     end
 
-    def admin_user
-        redirect_to(root_url) unless current_user.admin?
-    end
-
     def redirect_unless_admin
-    unless current_user.try(:admin?)
-      flash[:error] = "Only admins can do that"
-      redirect_to root_path
-    end
+        unless current_user.admin?
+            flash[:error] = 'Only admins can do that'
+            redirect_to root_path
+        end
   end
 end
