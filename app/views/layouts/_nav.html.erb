@@ -24,7 +24,7 @@
                         <li class="divider"></li>
                         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
                     </ul>
-                <li><%= link_to "Inbox", mailbox_inbox_path %></li>
+                <li><%= link_to "Message", mailbox_inbox_path %></li>
                 <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             <% else %>
                 <li class="active"><%= link_to "Login", new_user_session_path %></li>

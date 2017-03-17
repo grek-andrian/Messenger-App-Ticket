@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
     devise_for :users
+    #resources :users
+    resources :users_admin, :controller => 'users'
     root 'welcome#index'
     # mailbox folder routes
     get 'mailbox/inbox', to:  'mailbox#inbox', as: :mailbox_inbox
