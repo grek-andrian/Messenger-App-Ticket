@@ -19,7 +19,7 @@ class UsersController < ApplicationController
             flash[:error] = 'please complete all fields'
             render 'new'
         end
-end
+    end
 
     def show
         @user = User.find(params[:id])
