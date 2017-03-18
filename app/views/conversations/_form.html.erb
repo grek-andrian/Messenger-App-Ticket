@@ -1,8 +1,7 @@
 <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
 <div class="form-group">
     <%= f.label :recipients %>
-<%= f.select(:recipients, User.all.collect {|p| [ p.name, p.id ] }, {}, { class: "form-control" })%>
-  <!--  <%= f.collection_select(:recipients, User.where.not(id: current_user.id), :id, :name, {prompt: "Select a recipient"}, {class: "form-control"}) %> -->
+    <%= f.collection_select(:recipients, User.where.not(id: current_user.id), :id, :name, {prompt: "Select a recipient"}, {class: "form-control"}) %>
 </div>
 <div class="form-group">
     <%= f.label :subject %>
