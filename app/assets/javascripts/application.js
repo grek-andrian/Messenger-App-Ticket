@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(document).ready(
+      function() {
+       setInterval(function() {
+         $('.dynamic').load('/mailbox/inbox');
+     }, 600000);
+ });
