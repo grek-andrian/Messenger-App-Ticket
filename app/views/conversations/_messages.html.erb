@@ -1,13 +1,25 @@
 <% @receipts.each do |receipt| %>
-    <% message = receipt.message %>
+  <% message = receipt.message %>
     <div class="media">
+      <div class="media-left">
+        <%= image_tag message.sender.avatar.url(:thumb), class:"rounded"%>
+      </div>
       <div class="media-body">
         <h4 class="media-heading">
-          <%= message.sender.name %> <br>
+          <% if message.sender != conversation.originator %>
+          <small><b>Answer from: </b></small><%= message.sender.name %> <br>
+          <% else %>
+          <small><b>From: </b></small><%= message.sender.name %> <br>
+          <% end %>
           <small><b>Subject: </b><%= message.subject %></small><br>
           <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
         </h4>
-        <%= message.body %>
       </div>
     </div>
+    <div class="panel panel-default classWithPad">
+      <div class="panel-heading">
+        <b>Text: </b><%= message.body %>
+      </div>
+    </div>
+  <hr>
 <% end %>
