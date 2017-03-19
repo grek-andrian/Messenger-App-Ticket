@@ -2,6 +2,9 @@
 
     <div class="col-md-12">
         <%= link_to "New message", new_conversation_path, class: "btn btn-success classWithPad" %>
+  <% if is_inbox %>
+        <%= link_to 'Check inbox', 'javascript:refresh()', class: "btn btn-primary classWithPad" %>
+<% end %>
     </div>
 
     <div class="col-md-4">

@@ -17,8 +17,12 @@
 //= require bootstrap-sprockets
 
 $(document).ready(
-      function() {
+      function () {
        setInterval(function() {
          $('.dynamic').load('/mailbox/inbox');
      }, 600000);
  });
+
+function refresh() {
+    $('.dynamic').load('/mailbox/inbox');
+};
