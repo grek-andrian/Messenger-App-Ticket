@@ -4,7 +4,7 @@
     <% if user_signed_in? %>
     <%= link_to 'Your messages', mailbox_inbox_path, class: "btn btn-success btn-lg" %>
       <% if current_user.admin? %>
-        <%= link_to "All Users", users_admin_index_path, class: "btn btn-primary btn-lg" %>
+        <%= link_to "Manage user accounts", users_admin_index_path, class: "btn btn-primary btn-lg" %>
       <% end %>
     <% else %>
     <%= link_to "Log in now!", new_user_session_path, class: "btn btn-primary btn-lg" %>

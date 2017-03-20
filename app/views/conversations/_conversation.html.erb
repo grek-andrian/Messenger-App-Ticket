@@ -4,7 +4,11 @@
   </div>
   <div class="media-body">
     <h4 class="media-heading">
-      <small><b>User: </b></small><%= conversation.originator.name %> <br>
+      <% if current_page?(mailbox_inbox_path) or current_page?(mailbox_trash_path) %>
+      <small><b>From User: </b></small><%= conversation.originator.name %> <br>
+      <% else %>
+      <small><b>To User: </b></small><%=  conversation.participants.find { |p| p != current_user }.name %> <br>
+      <% end %>
       <small><b>Subject: </b><%= conversation.subject %></small><br>
       <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small><br>
       <small><b>Text: </b> <%= truncate conversation.messages.last.body, length: 50 %></small>
