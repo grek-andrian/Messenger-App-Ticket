@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    devise_for :users, controllers: { sessions: 'sessions' }
+    devise_for :users, path_names: { sign_up: '' }, controllers: { sessions: 'sessions' }
 
     resources :users_admin, controller: 'users'
 
