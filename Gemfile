@@ -35,6 +35,10 @@ end
 group :test do
   gem 'selenium-webdriver', '~> 2.53'
   gem 'capybara', '~> 2.7', '>= 2.7.1'
+  gem 'factory_girl', '~> 4.7'
+  gem 'rspec-collection_matchers'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end
 
 group :development do
